@@ -1,0 +1,30 @@
+﻿@model Entities.Concrete.Product
+@{
+	ViewBag.Title = "AddProduct";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Ürün Ekle</h2>
+@using (Html.BeginForm("AddProduct", "AdminProduct", FormMethod.Post))
+{
+<div class="form-group">
+	<label for="basicInput">Ürün</label>
+	@Html.TextBoxFor(p => p.ProductName, new { @class = "form-control", @placeHolder = "Ürün adı giriniz" })
+	@Html.ValidationMessageFor(p => p.ProductName)
+	<br />
+	<label for="basicInput">Kategori</label>
+	@Html.DropDownListFor(p => p.CategoryId,(List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+	<br />
+	<label for="basicInput">Ürün Fiyatı</label>
+	@Html.TextBoxFor(p => p.ProductPrice, new { @class = "form-control" })
+	<br />
+	<label for="basicInput">Ürün Adedi</label>
+	@Html.TextBoxFor(p => p.Quantity, new { @class = "form-control" })
+	<br />
+	<label for="basicInput">Ürün Açıklaması</label>
+	@Html.TextAreaFor(p => p.Description, new { @class = "form-control", @placeHolder = "Açıklama giriniz" })
+	@Html.ValidationMessageFor(p => p.Description)
+</div>
+	<button class="btn btn-success">Ekle</button>
+}
+

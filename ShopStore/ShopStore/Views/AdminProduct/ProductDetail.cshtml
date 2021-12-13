@@ -1,0 +1,87 @@
+﻿@model Entities.Concrete.Product
+@{
+	ViewBag.Title = "ProductDetail";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="app-content content ecommerce-application">
+	<div class="content-overlay"></div>
+	<div class="header-navbar-shadow"></div>
+	<div class="content-wrapper container-xxl p-0">
+		<div class="content-header row">
+			<div class="content-header-left col-md-9 col-12 mb-2">
+				<div class="row breadcrumbs-top">
+					<div class="col-12">
+						<h2 class="content-header-title float-left mb-0">Ürün Detayı</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-body">
+			<!-- app e-commerce details start -->
+			<section class="app-ecommerce-details">
+				<div class="card">
+					<!-- Product Details starts -->
+					<div class="card-body">
+						<div class="row my-2">
+							<div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
+								<div class="d-flex align-items-center justify-content-center">
+									<img src="~/Content/Tema/app-assets/images/pages/eCommerce/1.png" class="img-fluid product-img" alt="product image" />
+								</div>
+							</div>
+							<div class="col-12 col-md-7">
+								<h4>@Html.DisplayFor(p=>p.ProductName)</h4>
+								<div class="ecommerce-details-price d-flex flex-wrap mt-1">
+									<h4 class="item-price mr-1">@Html.DisplayFor(p => p.ProductPrice)</h4>
+								</div>
+								<p class="card-text">Available - <span class="text-success">In stock</span></p>
+								<p class="card-text">
+									@Html.DisplayFor(p => p.Description)
+								</p>
+								<hr />
+								<div class="d-flex flex-column flex-sm-row pt-1">
+									<a href="/AdminProduct/UpdateProduct/@Model.ProductId" class="btn btn-primary btn-cart mr-0 mr-sm-1 mb-1 mb-sm-0">
+										<i data-feather="edit-2" class="mr-50"></i>
+										<span class="add-to-cart">Güncelle</span>
+									</a>
+									<a href="/AdminProduct/DeleteProduct/@Model.ProductId" class="btn btn-outline-secondary btn-wishlist mr-0 mr-sm-1 mb-1 mb-sm-0">
+										<i data-feather="trash" class="mr-50"></i>
+										<span>Sil</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Product Details ends -->
+					<!-- Item features starts -->
+					<div class="item-features">
+						<div class="row text-center">
+							<div class="col-12 col-md-4 mb-4 mb-md-0">
+								<div class="w-75 mx-auto">
+									<i data-feather="award"></i>
+									<h4 class="mt-2 mb-1">100% Original</h4>
+									<p class="card-text">Chocolate bar candy canes ice cream toffee. Croissant pie cookie halvah.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4 mb-4 mb-md-0">
+								<div class="w-75 mx-auto">
+									<i data-feather="clock"></i>
+									<h4 class="mt-2 mb-1">10 Day Replacement</h4>
+									<p class="card-text">Marshmallow biscuit donut dragée fruitcake. Jujubes wafer cupcake.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4 mb-4 mb-md-0">
+								<div class="w-75 mx-auto">
+									<i data-feather="shield"></i>
+									<h4 class="mt-2 mb-1">1 Year Warranty</h4>
+									<p class="card-text">Cotton candy gingerbread cake I love sugar plum I love sweet croissant.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+

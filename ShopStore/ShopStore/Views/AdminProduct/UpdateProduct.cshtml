@@ -1,0 +1,30 @@
+﻿@model Entities.Concrete.Product
+@{
+	ViewBag.Title = "UpdateProduct";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Ürün Güncelleme</h2>
+@using (Html.BeginForm("UpdateProduct", "AdminProduct", FormMethod.Post))
+{
+	<input class="hidden" type="number" value="@Model.ProductId" name="ProductId" />
+	<div class="form-group">
+		@Html.Label("Ürün Adı")
+		@Html.TextBoxFor(p => p.ProductName, new { @class = "form-control" })
+		@Html.ValidationMessageFor(p => p.ProductName)
+		<br />
+		@Html.DropDownListFor(p => p.CategoryId, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control hidden" })
+		<br />
+		@Html.Label("Ürün Fiyatı")
+		@Html.TextBoxFor(p => p.ProductPrice, new { @class = "form-control" })
+		<br />
+		@Html.Label("Ürün Adedi")
+		@Html.TextBoxFor(p => p.Quantity, new { @class = "form-control" })
+		<br />
+		@Html.Label("Ürün Açıklaması")
+		@Html.TextAreaFor(p => p.Description, new { @class = "form-control" })
+		@Html.ValidationMessageFor(p => p.Description)
+		<br />
+		<button class="btn btn-success">Güncelle</button>
+	</div>
+}

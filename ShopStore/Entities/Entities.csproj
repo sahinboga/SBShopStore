@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Admin.cs" />
     <Compile Include="Concrete\Cart.cs" />
     <Compile Include="Concrete\Category.cs" />
     <Compile Include="Concrete\Image.cs" />
@@ -58,6 +59,8 @@
     <Compile Include="Concrete\Product.cs" />
     <Compile Include="Concrete\ProductImage.cs" />
     <Compile Include="Concrete\ShippingDetail.cs" />
+    <Compile Include="Dtos\AddProductDto.cs" />
+    <Compile Include="Dtos\ProductDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

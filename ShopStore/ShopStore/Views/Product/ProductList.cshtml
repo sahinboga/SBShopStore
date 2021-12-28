@@ -1,0 +1,41 @@
+﻿@*@using Entities.Concrete
+	@model List<Product>*@
+
+@model ShopStore.Models.ProductImageRelation
+@{
+	ViewBag.Title = "ProductList";
+	Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="row">
+	<div class="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
+		<div class="row">
+			@foreach (var product in Model.Product)
+			{
+				<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+					<div class="product-thumbnail">
+						<div class="product-img-head">
+							<div class="product-img">
+								<img src="@(Model.ProductImages.FirstOrDefault(x=>x.ProductId == product.ProductId).Image.ImagePath ?? "https://coheao.site-ym.com/global_graphics/default-store-350x350.jpg")" style="max-width:200px; height:100px" alt="" />
+							</div>
+						</div>
+						<div class="product-content">
+							<div class="product-content-head">
+								<h3 class="product-title">@product.ProductName</h3>
+								<div class="product-price">$@product.ProductPrice</div>
+							</div>
+							<div class="product-btn text-center">
+								<a href="/Product/ProductDetail/@product.ProductId" class="btn btn-outline-light btn-cart">
+									<i class=""></i>
+									<span class="add-to-cart">Detay</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+	@Html.Action("GetCategories", "Category")
+</div>
+

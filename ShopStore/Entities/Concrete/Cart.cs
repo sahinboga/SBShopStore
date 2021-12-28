@@ -18,6 +18,6 @@ namespace Entities.Concrete
 		public int MemberId { get; set; }
 		public virtual Member Member { get; set; }
 
-		public bool CartStatus { get; set; }
+		public int Quantity { get; set; }
 	}
 }

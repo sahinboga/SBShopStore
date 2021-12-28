@@ -16,8 +16,6 @@ namespace Entities.Concrete
 		public string ProductName { get; set; }
 		public int ProductPrice { get; set; }
 		public int Quantity { get; set; }
-		public bool IsActive { get; set; }
-		public bool IsDelete { get; set; }
 		public bool IsFeatured { get; set; }
 
 		[StringLength(500)]

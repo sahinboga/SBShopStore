@@ -14,7 +14,7 @@ namespace DataAccess.Abstract
 
         T GetById(Expression<Func<T, bool>> filter);
 
-        void Add(T entity);
+        T Add(T entity);
 
         void Update(T entity);
 

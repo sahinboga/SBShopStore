@@ -1,30 +1,53 @@
-﻿@model Entities.Concrete.Product
+﻿@model Entities.Dtos.AddProductDto
+
 @{
 	ViewBag.Title = "AddProduct";
 	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	//Model = new ShopStore.Models.AddProduct();
+	//Model.Product = new Entities.Concrete.Product();
+	var idx = 0;
 }
 
 <h2>Yeni Ürün Ekle</h2>
 @using (Html.BeginForm("AddProduct", "AdminProduct", FormMethod.Post))
 {
-<div class="form-group">
-	<label for="basicInput">Ürün</label>
-	@Html.TextBoxFor(p => p.ProductName, new { @class = "form-control", @placeHolder = "Ürün adı giriniz" })
-	@Html.ValidationMessageFor(p => p.ProductName)
-	<br />
-	<label for="basicInput">Kategori</label>
-	@Html.DropDownListFor(p => p.CategoryId,(List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
-	<br />
-	<label for="basicInput">Ürün Fiyatı</label>
-	@Html.TextBoxFor(p => p.ProductPrice, new { @class = "form-control" })
-	<br />
-	<label for="basicInput">Ürün Adedi</label>
-	@Html.TextBoxFor(p => p.Quantity, new { @class = "form-control" })
-	<br />
-	<label for="basicInput">Ürün Açıklaması</label>
-	@Html.TextAreaFor(p => p.Description, new { @class = "form-control", @placeHolder = "Açıklama giriniz" })
-	@Html.ValidationMessageFor(p => p.Description)
-</div>
-	<button class="btn btn-success">Ekle</button>
+	<div class="form-group">
+		<label for="basicInput">Ürün</label>
+		@Html.TextBoxFor(p => p.Products.ProductName, new { @class = "form-control", @placeHolder = "Ürün adı giriniz" })
+		@Html.ValidationMessageFor(p => p.Products.ProductName)
+		<br />
+		<label for="basicInput">Kategori</label>
+		@Html.DropDownListFor(p => p.Products.CategoryId, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+		<br />
+		<label for="basicInput">Ürün Fiyatı</label>
+		@Html.TextBoxFor(p => p.Products.ProductPrice, new { @class = "form-control" })
+		<br />
+		<label for="basicInput">Ürün Adedi</label>
+		@Html.TextBoxFor(p => p.Products.Quantity, new { @class = "form-control" })
+		<br />
+		<label for="basicInput">Ürün Açıklaması</label>
+		@Html.TextAreaFor(p => p.Products.Description, new { @class = "form-control", @placeHolder = "Açıklama giriniz" })
+		@Html.ValidationMessageFor(p => p.Products.Description)
+		<br />
+		<div id="image">
+			<label for="basicInput">Ürün Resimleri</label>
+			@*@Html.TextBoxFor(p => p.Images[idx], new { @class = "form-control" })*@
+		</div>
+		<br />
+		<div class="d-flex justify-content-end">
+			<button type="button" id="imageAdd" class="btn btn-success">Resim Ekle</button>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-success">Ekle</button>
 }
+
+<script>
+	$(document).ready(function () {
+		let idx = 0;
+		$("#imageAdd").click((e) => {
+			e.preventDefault()
+			$("#image").append(`<input name="Images[${idx++}]" class="form-control" placeholder="Resim ekle..."/>`)
+		})
+	})
+</script>
 

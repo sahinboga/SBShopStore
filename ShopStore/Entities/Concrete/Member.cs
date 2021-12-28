@@ -32,5 +32,10 @@ namespace Entities.Concrete
 
 		public ICollection<Cart> Carts { get; set; }
 		public ICollection<ShippingDetail> ShippingDetails { get; set; }
+
+		public override string ToString()
+		{
+			return $"{{memberId:{MemberId}, email:{Email}}}";
+		}
 	}
 }

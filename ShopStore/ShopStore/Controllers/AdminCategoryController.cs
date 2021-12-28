@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using Business.ValidationRules;
 using DataAccess.EntityFramework;
 using Entities.Concrete;
@@ -11,12 +12,13 @@ using System.Web.Mvc;
 
 namespace ShopStore.Controllers
 {
+    [AllowAnonymous]
     public class AdminCategoryController : Controller
     {
-        CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        ICategoryService _categoryService = new CategoryManager(new EfCategoryDal());
         public ActionResult Index()
         {
-            var categoryvalues = cm.GetAll();
+            var categoryvalues = _categoryService.GetAll();
             return View(categoryvalues);
         }
 
@@ -32,7 +34,7 @@ namespace ShopStore.Controllers
             ValidationResult results = categoryValidator.Validate(category);
 			if (results.IsValid)
 			{
-                cm.CategoryAdd(category);
+                _categoryService.CategoryAdd(category);
                 return RedirectToAction("Index");
 			}
 			else
@@ -48,15 +50,19 @@ namespace ShopStore.Controllers
         [HttpGet]
         public ActionResult UpdateCategory(int id)
 		{
-            var categoryvalues = cm.GetById(id);
+            var categoryvalues = _categoryService.GetById(id);
             return View(categoryvalues);
 		}
         [HttpPost]
         public ActionResult UpdateCategory(Category category)
 		{
-            cm.UpdateCategory(category);
+            _categoryService.UpdateCategory(category);
             return RedirectToAction("Index");
 		}
 
+        public PartialViewResult GetCategories()
+		{
+            return PartialView(_categoryService.GetAll());
+		}
     }
 }

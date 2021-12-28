@@ -1,0 +1,55 @@
+﻿@*@using Entities.Concrete
+@model List<Cart>*@
+
+@model ShopStore.Models.CartImageRelation
+
+@{
+    ViewBag.Title = "MyCart";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="card">
+	<h5 class="card-header">Sepetim</h5>
+	<div class="card-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Ürün Resmi</th>
+					<th>Ürün Adı</th>
+					<th>Ürün Adedi</th>
+					<th>Fiyat</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var cart in Model.Cart)
+				{
+					<tr>
+						<td>
+							<img src="@(Model.ProductImages.FirstOrDefault(x=>x.ProductId == cart.ProductId).Image.ImagePath ?? "https://coheao.site-ym.com/global_graphics/default-store-350x350.jpg")" style="max-width: 75px; height:50px" class="img-fluid" alt="" />
+						</td>
+						<td>@cart.Product.ProductName</td>
+						<td>
+							@cart.Quantity
+						</td>
+						<td>$@(cart.Product.ProductPrice*cart.Quantity)</td>
+						<td>
+							<div class="dropdown">
+								<button type="button" class="btn btn-sm dropdown-toggle hide-arrow" data-toggle="dropdown">
+									<i data-feather="more-vertical"></i>
+								</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="/Cart/DeleteProduct/@cart.Product.ProductId">
+											<i class=" fas fa-trash"></i>
+											<span>Ürünü Sil</span>
+										</a>
+								</div>
+							</div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
+

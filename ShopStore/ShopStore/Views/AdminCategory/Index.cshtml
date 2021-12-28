@@ -6,74 +6,58 @@
 }
 
 
-			<div class="content-header row">
-				<div class="content-header-left col-md-9 col-12 mb-2">
-					<div class="row breadcrumbs-top">
-						<div class="col-12">
-							<h2 class="content-header-title float-left mb-0">Kategoriler</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="content-body">
-				<div class="row" id="basic-table">
-					<div class="col-12">
-						<div class="card">
-							<div class="table-responsive">
-								<table class="table">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Kategori</th>
-											<th>Durum</th>
-											<th>Actions</th>
-										</tr>
-									</thead>
-									<tbody>
-										@foreach (var category in Model)
-										{
-										<tr>
-											<td>@category.CategoryId</td>
-											<td>@category.CategoryName</td>
-											<td>
-												@if (category.IsActive)
-												{
+<div class="card">
+	<h5 class="card-header">Kategoriler</h5>
+	<div class="card-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Kategori</th>
+					<th>Durum</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var category in Model)
+				{
+					<tr>
+						<td>@category.CategoryId</td>
+						<td>@category.CategoryName</td>
+						<td>
+							@if (category.IsActive)
+							{
 
-													<span class="badge badge-pill badge-light-success mr-1">Aktif</span>
-												}
-												else
-												{
-													<span class="badge badge-pill badge-light-danger mr-1">Pasif</span>
-												}
-											</td>
-											<td>
-												<div class="dropdown">
-													<button type="button" class="btn btn-sm dropdown-toggle hide-arrow" data-toggle="dropdown">
-														<i data-feather="more-vertical"></i>
-													</button>
-													<div class="dropdown-menu">
-														<a class="dropdown-item" href="/AdminCategory/UpdateCategory/@category.CategoryId">
-															<i data-feather="edit-2" class="mr-50"></i>
-															<span>Edit</span>
-														</a>
-														<a class="dropdown-item" href="javascript:void(0);">
-															<i data-feather="trash" class="mr-50"></i>
-															<span>Delete</span>
-														</a>
-													</div>
-												</div>
-											</td>
-										</tr>
-										}
-									</tbody>
-								</table>
+								<span class="badge badge-pill bg-success-light mr-1">Aktif</span>
+							}
+							else
+							{
+								<span class="badge badge-pill bg-danger-light mr-1">Pasif</span>
+							}
+						</td>
+						<td>
+							<div class="dropdown">
+								<button type="button" class="btn btn-sm dropdown-toggle hide-arrow" data-toggle="dropdown">
+									<i data-feather="more-vertical"></i>
+								</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="/AdminCategory/UpdateCategory/@category.CategoryId">
+										<i class="far fa-edit"></i>
+										<span>Edit</span>
+									</a>
+									@*<a class="dropdown-item" href="javascript:void(0);">
+										<i class=" fas fa-trash"></i>
+										<span>Delete</span>
+									</a>*@
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<a href="/AdminCategory/AddCategory" class="btn btn-info">Yeni Kategori</a>
-	<div class="sidenav-overlay"></div>
-	<div class="drag-target"></div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
 
+<a href="/AdminCategory/AddCategory" class="btn btn-info">Yeni Kategori</a>
 

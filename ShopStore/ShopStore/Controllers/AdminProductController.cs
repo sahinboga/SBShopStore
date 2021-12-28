@@ -1,8 +1,11 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using Business.ValidationRules;
 using DataAccess.EntityFramework;
 using Entities.Concrete;
+using Entities.Dtos;
 using FluentValidation.Results;
+using ShopStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +14,26 @@ using System.Web.Mvc;
 
 namespace ShopStore.Controllers
 {
+    [AllowAnonymous]
     public class AdminProductController : Controller
     {
-        ProductManager pm = new ProductManager(new EfProductDal());
-        CategoryManager cm = new CategoryManager(new EfCategoryDal());
-        public ActionResult Index()
+        IProductService _productService = new ProductManager(new EfProductDal());
+        IProductImageService _productImageService = new ProductImageManager(new EfProductImageDal());
+        ICategoryService _categoryService = new CategoryManager(new EfCategoryDal());
+        ProductImageRelation productImageRelation = new ProductImageRelation();
+        ProductImageDetailRelation ProductImageDetailRelation = new ProductImageDetailRelation();
+        public ActionResult Index(int? id)
         {
-            var productvalues = pm.GetAll();
-            return View(productvalues);
+            productImageRelation.Product = _productService.GetAllByCategoryId(id ?? 0);
+            productImageRelation.ProductImages = _productImageService.GetAll();
+            //var productvalues = _productService.GetAllByCategoryId(id??0);
+            return View(productImageRelation);		
         }
 
         [HttpGet]
         public ActionResult AddProduct()
 		{
-            List<SelectListItem> categoryvalue = (from x in cm.GetAll()
+            List<SelectListItem> categoryvalue = (from x in _categoryService.GetAll()
                                                   select new SelectListItem { 
                                                       Text=x.CategoryName,
                                                       Value=x.CategoryId.ToString()
@@ -34,14 +43,14 @@ namespace ShopStore.Controllers
 		}
 
         [HttpPost]
-        public ActionResult AddProduct(Product product)
+        public ActionResult AddProduct(AddProductDto addProductDto)
         {
             ProductValidator productValidator = new ProductValidator();
-            ValidationResult results = productValidator.Validate(product);
+            ValidationResult results = productValidator.Validate(addProductDto.Products);
 
             if (results.IsValid)
             {
-                pm.ProductAdd(product);
+                _productService.ProductAdd(addProductDto);
                 return RedirectToAction("Index");
             }
             else
@@ -51,40 +60,49 @@ namespace ShopStore.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult UpdateProduct(int id)
-		{
-            List<SelectListItem> categoryvalue = (from x in cm.GetAll()
+            List<SelectListItem> categoryvalue = (from x in _categoryService.GetAll()
                                                   select new SelectListItem
                                                   {
                                                       Text = x.CategoryName,
                                                       Value = x.CategoryId.ToString()
                                                   }).ToList();
             ViewBag.cv = categoryvalue;
-            var productvalues = pm.GetById(id);
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult UpdateProduct(int id)
+		{
+            List<SelectListItem> categoryvalue = (from x in _categoryService.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.cv = categoryvalue;
+            var productvalues = _productService.GetById(id);
             return View(productvalues);
 		}
         [HttpPost]
         public ActionResult UpdateProduct(Product product)
         {
-            pm.UpdateProduct(product);
+            _productService.UpdateProduct(product);
             return RedirectToAction("Index");
         }
 
         public ActionResult DeleteProduct(int id)
 		{
-            var productvalues = pm.GetById(id);
-            pm.DeleteProduct(productvalues);
+            var productvalues = _productService.GetById(id);
+            _productService.DeleteProduct(productvalues);
             return RedirectToAction("Index");
 		}
 
-        public ActionResult GetProductDetail(int id)
+        public ActionResult ProductDetail(int id)
 		{
-            var productvalue = pm.GetById(id);
-            return View(productvalue);
+            ProductImageDetailRelation.Product = _productService.GetById(id);
+            ProductImageDetailRelation.ProductImage = _productImageService.GetAll();
+            //var productvalue = _productService.GetById(id);
+            return View(ProductImageDetailRelation);
 		}
     }
 }

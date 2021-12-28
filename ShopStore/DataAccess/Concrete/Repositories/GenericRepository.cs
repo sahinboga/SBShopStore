@@ -18,11 +18,12 @@ namespace DataAccess.Concrete.Repositories
 		{
 			_object = sc.Set<T>();
 		}
-		public void Add(T entity)
+		public T Add(T entity)
 		{
 			var addedEntity = sc.Entry(entity);
 			addedEntity.State = EntityState.Added;
 			sc.SaveChanges();
+			return addedEntity.Entity;
 		}
 
 		public void Delete(T entity)

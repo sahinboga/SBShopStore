@@ -4,13 +4,13 @@
 	Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Yeni Kategori Ekleme</h2>
-@using(Html.BeginForm("AddCategory","AdminCategory",FormMethod.Post))
+<h2>Yeni Kategori</h2>
+@using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
 {
 	<div class="form-group">
 		<label for="basicInput">Kategori</label>
-		@Html.TextBoxFor(c=>c.CategoryName,new { @class="form-control", @placeHolder ="Kategori"})
-		@Html.ValidationMessageFor(c=>c.CategoryName)
+		@Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control", @placeHolder = "Kategori" })
+		@Html.ValidationMessageFor(c => c.CategoryName)
 	</div>
 	<button class="btn btn-success">Ekle</button>
 }

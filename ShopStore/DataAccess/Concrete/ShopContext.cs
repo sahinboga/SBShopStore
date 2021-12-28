@@ -15,6 +15,8 @@ namespace DataAccess.Concrete
 		public DbSet<Image> Images { get; set; }
 		public DbSet<Member> Members { get; set; }
 		public DbSet<Product> Products { get; set; }
+		public DbSet<ProductImage> ProductImages { get; set; }
 		public DbSet<ShippingDetail> ShippingDetails { get; set; }
+		public DbSet<Admin> Admins { get; set; }
 	}
 }

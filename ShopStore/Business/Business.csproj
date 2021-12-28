@@ -54,20 +54,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAdminService.cs" />
     <Compile Include="Abstract\ICartService.cs" />
     <Compile Include="Abstract\ICategoryService.cs" />
     <Compile Include="Abstract\IImageService.cs" />
+    <Compile Include="Abstract\IMemberLoginService.cs" />
     <Compile Include="Abstract\IMemberService.cs" />
+    <Compile Include="Abstract\IProductImageService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Abstract\IShippingDetail.cs" />
     <Compile Include="Concrete\CartManager.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\ImageManager.cs" />
+    <Compile Include="Concrete\MemberLoginManager.cs" />
     <Compile Include="Concrete\MemberManager.cs" />
+    <Compile Include="Concrete\ProductImageManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\ShippingDetailManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\CategoryValidator.cs" />
+    <Compile Include="ValidationRules\MemberValidator.cs" />
     <Compile Include="ValidationRules\ProductValidator.cs" />
   </ItemGroup>
   <ItemGroup>

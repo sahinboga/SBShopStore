@@ -1,0 +1,6 @@
+C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Core\bin\Debug\Core.dll
+C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Core\bin\Debug\Core.pdb
+C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Core\obj\Debug\Core.csproj.AssemblyReference.cache
+C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Core\obj\Debug\Core.dll
+C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Core\obj\Debug\Core.pdb

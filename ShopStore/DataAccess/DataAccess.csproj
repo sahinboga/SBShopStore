@@ -51,23 +51,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICartDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IEntityRepository.cs" />
     <Compile Include="Abstract\IImageDal.cs" />
     <Compile Include="Abstract\IMemberDal.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
+    <Compile Include="Abstract\IProductImageDal.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="Concrete\ShopContext.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfCartDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfImageDal.cs" />
     <Compile Include="EntityFramework\EfMemberDal.cs" />
     <Compile Include="EntityFramework\EfProductDal.cs" />
+    <Compile Include="EntityFramework\EfProductImageDal.cs" />
     <Compile Include="EntityFramework\EfShippingDetailDal.cs" />
     <Compile Include="Migrations\202112120815569_mig_product_edit.cs" />
     <Compile Include="Migrations\202112120815569_mig_product_edit.designer.cs">
       <DependentUpon>202112120815569_mig_product_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112141845331_update_product.cs" />
+    <Compile Include="Migrations\202112141845331_update_product.designer.cs">
+      <DependentUpon>202112141845331_update_product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112191556039_update_cart.cs" />
+    <Compile Include="Migrations\202112191556039_update_cart.designer.cs">
+      <DependentUpon>202112191556039_update_cart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112201843530_update_image.cs" />
+    <Compile Include="Migrations\202112201843530_update_image.designer.cs">
+      <DependentUpon>202112201843530_update_image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112231201232_add_admin_table.cs" />
+    <Compile Include="Migrations\202112231201232_add_admin_table.designer.cs">
+      <DependentUpon>202112231201232_add_admin_table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +105,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202112120815569_mig_product_edit.resx">
       <DependentUpon>202112120815569_mig_product_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112141845331_update_product.resx">
+      <DependentUpon>202112141845331_update_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112191556039_update_cart.resx">
+      <DependentUpon>202112191556039_update_cart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112201843530_update_image.resx">
+      <DependentUpon>202112201843530_update_image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112231201232_add_admin_table.resx">
+      <DependentUpon>202112231201232_add_admin_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

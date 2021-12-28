@@ -7,19 +7,19 @@
 <h2>Kategori Güncelle</h2>
 @using (Html.BeginForm("UpdateCategory", "AdminCategory", FormMethod.Post))
 {
-	<input class="hidden" type="number" value="@Model.CategoryId" name="CategoryId"/>
-<div class="form-group">
-	@Html.Label("Kategori Adı")
-	@Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
-	@Html.ValidationMessageFor(c => c.CategoryName)
-	<br />
-	@Html.Label("Kategori Durumu")
-	@Html.DropDownListFor(c=>c.IsActive, new SelectList(new[]
-		{   new{Text="Aktif",Value="true",Selected=Model.IsActive==true},
-			new{Text="Pasif",Value="false",Selected=Model.IsActive==false}
-		}, "Value", "Text"), new { @class = "form-control form-select" })
-	<br />
-	<button class="btn btn-success">Güncelle</button>
-</div>
+	<input hidden type="number" value="@Model.CategoryId" name="CategoryId" />
+	<div class="form-group">
+		@Html.Label("Kategori Adı")
+		@Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
+		@Html.ValidationMessageFor(c => c.CategoryName)
+		<br />
+		@Html.Label("Kategori Durumu")
+		@Html.DropDownListFor(c => c.IsActive, new SelectList(new[]
+			{   new{Text="Aktif",Value="true",Selected=Model.IsActive==true},
+				new{Text="Pasif",Value="false",Selected=Model.IsActive==false}
+			}, "Value", "Text"), new { @class = "form-control form-select" })
+		<br />
+		<button class="btn btn-success">Güncelle</button>
+	</div>
 }
 

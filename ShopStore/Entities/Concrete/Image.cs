@@ -12,9 +12,6 @@ namespace Entities.Concrete
 		[Key]
 		public int ImageId { get; set; }
 
-		[StringLength(100)]
-		public string ImageTitle { get; set; }
-
 		[StringLength(1000)]
 		public string ImagePath { get; set; }
 

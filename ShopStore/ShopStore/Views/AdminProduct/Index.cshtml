@@ -1,141 +1,53 @@
-﻿@using Entities.Concrete
-@model List<Product>
+﻿@*@using Entities.Concrete
+	@model List<Product>*@
+
+@model ShopStore.Models.ProductImageRelation
+
 @{
 	ViewBag.Title = "Index";
 	Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="content-detached content-right">
-	<div class="content-body">
-		<section id="ecommerce-searchbar" class="ecommerce-searchbar mt-2">
-			<div class="row mt-1">
-				<div class="col-sm-12">
-					<div class="input-group input-group-merge">
-						<input type="text" class="form-control search-product" id="shop-search" placeholder="Search Product" aria-label="Search..." aria-describedby="shop-search" />
-						<div class="input-group-append">
-							<span class="input-group-text"><i data-feather="search" class="text-muted"></i></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<br />
-		<!-- E-commerce Search Bar Ends -->
-		<!-- E-commerce Products Starts -->
-		<section id="ecommerce-products" class="grid-view">
-			@foreach (var product in Model)
+
+<div class="row">
+	<div class="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
+		<div class="row">
+			@foreach (var product in Model.Product)
 			{
-				<div class="card ecommerce-card">
-					<div class="item-img text-center">
-						<a href="/AdminProduct/ProductDetail/@product.ProductId">
-							<img class="img-fluid card-img-top" src="~/Content/Tema/app-assets/images/pages/eCommerce/1.png" alt="img-placeholder" />
-						</a>
-					</div>
-					<div class="card-body">
-						<div class="item-wrapper">
-							<div>
-								<h6 class="item-price">$@product.ProductPrice</h6>
+				<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+					<div class="product-thumbnail">
+						<div class="product-img-head">
+							<div class="product-img">
+
+								<img src="@(Model.ProductImages.FirstOrDefault(x=>x.ProductId == product.ProductId).Image.ImagePath ?? "https://coheao.site-ym.com/global_graphics/default-store-350x350.jpg")" style="max-width:200px; height:100px" alt="" />
+
 							</div>
 						</div>
-						<h6 class="item-name">
-							<a class="text-body" href="app-ecommerce-details.html">@product.ProductName</a>
-						</h6>
-						<p class="card-text item-description">
-							@product.Description
-						</p>
-					</div>
-					<div class="item-options text-center">
-						<div class="item-wrapper">
-							<div class="item-cost">
-								<h4 class="item-price">$@product.ProductPrice</h4>
+						<div class="product-content">
+							<div class="product-content-head">
+								<h3 class="product-title">@product.ProductName</h3>
+								<div class="product-price">$@product.ProductPrice</div>
+							</div>
+							<div class="product-btn">
+								<a href=" @Url.Action("DeleteProduct","AdminProduct", new { id = product.ProductId })" class="btn btn-danger btn-cart">
+									<i class="fas fa-trash"></i>
+									<span>Sil</span>
+								</a>
+								<a href="@Url.Action("UpdateProduct","AdminProduct", new { id = product.ProductId })" class="btn btn-primary btn-cart">
+									<i class="far fa-edit"></i>
+									<span class="add-to-cart">Güncelle</span>
+								</a>
+								<a href="@Url.Action("ProductDetail","AdminProduct", new { id = product.ProductId })" class="btn btn-outline-light btn-cart">
+									<i class=""></i>
+									<span class="add-to-cart">Detay</span>
+								</a>
 							</div>
 						</div>
-						<a href="/AdminProduct/DeleteProduct/@product.ProductId" class="btn btn-light btn-wishlist">
-							<i data-feather="trash"></i>
-							<span>Sil</span>
-						</a>
-						<a href="/AdminProduct/UpdateProduct/@product.ProductId" class="btn btn-primary btn-cart">
-							<i data-feather="edit-2"></i>
-							<span class="add-to-cart">Güncelle</span>
-						</a>
 					</div>
 				</div>
 			}
-
-		</section>
-	</div>
-</div>
-<div class="sidebar-detached sidebar-left">
-	<div class="sidebar">
-		<!-- Ecommerce Sidebar Starts -->
-		<div class="sidebar-shop">
-			<div class="row">
-				<div class="col-sm-12">
-					<h6 class="filter-heading d-none d-lg-block">Filters</h6>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-body">
-					<!-- Price Filter starts -->
-					<div class="multi-range-price">
-						<h6 class="filter-title mt-0">Multi Range</h6>
-						<ul class="list-unstyled price-range" id="price-range">
-							<li>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="priceAll" name="price-range" class="custom-control-input" checked />
-									<label class="custom-control-label" for="priceAll">All</label>
-								</div>
-							</li>
-							<li>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="priceRange1" name="price-range" class="custom-control-input" />
-									<label class="custom-control-label" for="priceRange1">&lt;=$10</label>
-								</div>
-							</li>
-							<li>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="priceRange2" name="price-range" class="custom-control-input" />
-									<label class="custom-control-label" for="priceRange2">$10 - $100</label>
-								</div>
-							</li>
-							<li>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="priceARange3" name="price-range" class="custom-control-input" />
-									<label class="custom-control-label" for="priceARange3">$100 - $500</label>
-								</div>
-							</li>
-							<li>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="priceRange4" name="price-range" class="custom-control-input" />
-									<label class="custom-control-label" for="priceRange4">&gt;= $500</label>
-								</div>
-							</li>
-						</ul>
-					</div>
-					<!-- Categories Starts -->
-					<div id="product-categories">
-						<h6 class="filter-title">Kategoriler</h6>
-						<ul class="list-unstyled categories-list">
-							<li>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="category1" name="category-filter" class="custom-control-input" checked />
-									<label class="custom-control-label" for="category1">Appliances</label>
-								</div>
-							</li>
-						</ul>
-					</div>
-					<div id="clear-filters">
-						<button type="button" class="btn btn-block btn-primary">Clear All Filters</button>
-					</div>
-					<!-- Clear Filters Ends -->
-				</div>
-			</div>
 		</div>
-		<!-- Ecommerce Sidebar Ends -->
-
 	</div>
+	@Html.Action("GetCategories", "AdminCategory")
 </div>
-
-
-
 

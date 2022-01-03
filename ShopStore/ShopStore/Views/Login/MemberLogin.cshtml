@@ -39,7 +39,7 @@
 	<!-- ============================================================== -->
 	<div class="splash-container">
 		<div class="card ">
-			<div class="card-header text-center"><img class="logo-img" src="~/Content/Tema/Shop/assets/images/logo.png" alt="logo"><span class="splash-description">Lütfen kullanıcı bilgilerinizi giriniz.</span></div>
+			<div class="card-header text-center"><img class="logo-img" src="~/Content/Tema/Shop/assets/images/shlogo.png" alt="logo"><span class="splash-description">Lütfen kullanıcı bilgilerinizi giriniz.</span></div>
 			<div class="card-body">
 				@using(Html.BeginForm("MemberLogin", "Login", FormMethod.Post))
 				{
@@ -57,12 +57,9 @@
 					<button type="submit" class="btn btn-primary btn-lg btn-block">Giriş Yap</button>
 				}
 			</div>
-			<div class="card-footer bg-white p-0  ">
-				<div class="card-footer-item card-footer-item-bordered">
-					<a href="#" class="footer-link">Create An Account</a>
-				</div>
-				<div class="card-footer-item card-footer-item-bordered">
-					<a href="#" class="footer-link">Forgot Password</a>
+			<div class="card-footer bg-white p-0  d-flex justify-content-center" >
+				<div class="card-footer-item card-footer-item-bordered ">
+					<a href="/Member/MemberRegister/" class="footer-link">Hesap Oluştur</a>
 				</div>
 			</div>
 		</div>

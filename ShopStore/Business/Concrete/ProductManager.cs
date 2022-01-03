@@ -45,7 +45,7 @@ namespace Business.Concrete
 			var addProduct=productDal.Add(dto.Products);
 			foreach (var item in dto.Images)
 			{
-				var addImage=_imageService.ImageAdd(new Image() {ImageId=0, ImagePath=item});
+				var addImage = _imageService.ImageAdd(new Image() { ImageId = 0, ImagePath = item });
 				_productImageService.Add(new ProductImage() { ImageId = addImage.ImageId, ProductId = addProduct.ProductId });
 			}
 		}

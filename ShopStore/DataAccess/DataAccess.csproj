@@ -59,6 +59,7 @@
     <Compile Include="Abstract\IMemberDal.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
     <Compile Include="Abstract\IProductImageDal.cs" />
+    <Compile Include="Abstract\IShippingDetailDal.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="Concrete\ShopContext.cs" />
     <Compile Include="EntityFramework\EfAdminDal.cs" />
@@ -89,6 +90,10 @@
     <Compile Include="Migrations\202112231201232_add_admin_table.designer.cs">
       <DependentUpon>202112231201232_add_admin_table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112292052415_shipping.cs" />
+    <Compile Include="Migrations\202112292052415_shipping.designer.cs">
+      <DependentUpon>202112292052415_shipping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -117,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112231201232_add_admin_table.resx">
       <DependentUpon>202112231201232_add_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112292052415_shipping.resx">
+      <DependentUpon>202112292052415_shipping.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

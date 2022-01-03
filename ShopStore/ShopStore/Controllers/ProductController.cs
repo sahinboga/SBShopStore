@@ -10,7 +10,6 @@ using System.Web.Mvc;
 
 namespace ShopStore.Controllers
 {
-    [AllowAnonymous]
     public class ProductController : Controller
     {
         IProductService _productService = new ProductManager(new EfProductDal());

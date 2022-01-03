@@ -12,7 +12,6 @@ using System.Web.Mvc;
 
 namespace ShopStore.Controllers
 {
-    [AllowAnonymous]
     public class CartController : Controller
     {
         ICartService _cartService = new CartManager(new EfCartDal());

@@ -1,11 +1,11 @@
 ﻿@*@using Entities.Concrete
-@model List<Cart>*@
+	@model List<Cart>*@
 
 @model ShopStore.Models.CartImageRelation
 
 @{
-    ViewBag.Title = "MyCart";
-    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+	ViewBag.Title = "MyCart";
+	Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 
 <div class="card">
@@ -40,16 +40,26 @@
 								</button>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="/Cart/DeleteProduct/@cart.Product.ProductId">
-											<i class=" fas fa-trash"></i>
-											<span>Ürünü Sil</span>
-										</a>
+										<i class=" fas fa-trash"></i>
+										<span>Ürünü Sil</span>
+									</a>
 								</div>
 							</div>
 						</td>
 					</tr>
 				}
+				<tr>
+					<td><strong>Toplam Tutar:</strong></td>
+					<td></td>
+					<td></td>
+					<td>$@Model.Cart.Select(x => x.Product.ProductPrice * x.Quantity).Sum()</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
 
+
+<div>
+	<a href="/Payment/Pay" class="btn btn-success">Ödeme Yap</a>
+</div>

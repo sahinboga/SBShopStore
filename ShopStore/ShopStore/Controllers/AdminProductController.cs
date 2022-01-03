@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace ShopStore.Controllers
 {
-    [AllowAnonymous]
+    //[AllowAnonymous]
     public class AdminProductController : Controller
     {
         IProductService _productService = new ProductManager(new EfProductDal());

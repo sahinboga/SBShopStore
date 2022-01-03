@@ -32,6 +32,11 @@ namespace Business.Concrete
 			}
 		}
 
+		public void DeleteByMemberId(int id)
+		{
+			cartDal.DeleteByMemberId(id);
+		}
+
 		public void DeleteCart(Cart cart)
 		{
 			cartDal.Delete(cart);

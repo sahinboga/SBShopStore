@@ -16,7 +16,8 @@ namespace ShopStore.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
-        IMemberLoginService _memberLoginService = new MemberLoginManager(new EfMemberDal());
+        ILoginService _loginService = new LoginManager(new EfMemberDal(), new EfAdminDal());
+
 
         [HttpGet]
         public ActionResult MemberLogin()
@@ -30,7 +31,7 @@ namespace ShopStore.Controllers
             string password = member.Password;
             string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
             member.Password = result;
-            var memberUSerInfo = _memberLoginService.GetMember(member.Email, member.Password);
+            var memberUSerInfo = _loginService.GetMember(member.Email, member.Password);
 			if (memberUSerInfo != null)
 			{
                 FormsAuthentication.SetAuthCookie(memberUSerInfo.ToString(), false);
@@ -43,11 +44,39 @@ namespace ShopStore.Controllers
 			}
         }
 
+        [HttpGet]
+        public ActionResult AdminLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AdminLogin(Admin admin)
+        {
+            var memberUSerInfo = _loginService.GetAdmin(admin.Email, admin.Password);
+            if (memberUSerInfo != null)
+            {
+                FormsAuthentication.SetAuthCookie(memberUSerInfo.ToString(), false);
+                Session["Member"] = memberUSerInfo.AdminId;
+                return RedirectToAction("Index", "AdminProduct");
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin");
+            }
+        }
+
         public ActionResult MemberLogOut()
 		{
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("MemberLogin", "Login");
+        }
+
+        public ActionResult AdminLogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("AdminLogin", "Login");
         }
     }
 }

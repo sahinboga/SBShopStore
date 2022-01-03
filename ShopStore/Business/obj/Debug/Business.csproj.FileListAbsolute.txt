@@ -17,3 +17,4 @@ C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Business\obj\Debug\Busine
 C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
 C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Business\obj\Debug\Business.dll
 C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Business\obj\Debug\Business.pdb
+C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\Business\obj\Debug\Business.csproj.CopyComplete

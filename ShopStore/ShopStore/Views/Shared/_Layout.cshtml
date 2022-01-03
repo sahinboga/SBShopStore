@@ -1,108 +1,170 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - My ASP.NET Application</title>
-	@*@Styles.Render("~/Content/css")*@
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/MyMainLayOut.css" rel="stylesheet" />
-	<!-- BEGIN: Vendor CSS-->
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/vendors/css/vendors.min.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/vendors/css/extensions/nouislider.min.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/vendors/css/extensions/toastr.min.css">
-	<!-- END: Vendor CSS-->
-	<!-- BEGIN: Theme CSS-->
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/bootstrap-extended.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/colors.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/components.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/themes/dark-layout.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/themes/bordered-layout.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/themes/semi-dark-layout.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<!-- BEGIN: Page CSS-->
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/core/menu/menu-types/horizontal-menu.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/plugins/extensions/ext-component-sliders.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/pages/app-ecommerce.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/Tema/app-assets/css/plugins/extensions/ext-component-toastr.css">
-	@Scripts.Render("~/bundles/modernizr")
+	<title>ShopStore</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="~/Content/Tema/Homepage/css/bootstrap.min.css" />
+
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="~/Content/Tema/Homepage/css/slick.css" />
+	<link type="text/css" rel="stylesheet" href="~/Content/Tema/Homepage/css/slick-theme.css" />
+
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="~/Content/Tema/Homepage/css/nouislider.min.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="~/Content/Tema/Homepage/css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="~/Content/Tema/Homepage/css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
 
 </head>
 <body>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-6">
-				<div class="logo">
-					<h1><a href="#">Online <span>Shopping Store</span></a></h1>
-					<p>My Shop</p>
-				</div>
-			</div>
-
-			<div class="col-md-6 col-sm-6 col-xs-6">
-				<div class="account">
-					<ul>
-						<li>
-							<div class="hidden-xs">
-								<h4><a>Arayın</a></h4>
-								<p>018##-######</p>
-							</div>
-
-							<div class="visible-xs">
-
-								<p>018##-######</p>
-							</div>
-
-						</li>
-					</ul>
-				</div>
+	<!-- HEADER -->
+	<header>
+		<!-- TOP HEADER -->
+		<div id="top-header">
+			<div class="container">
+				<ul class="header-links pull-left">
+					<li><h3 class="text-white">SHOPSTORE</h3></li>
+				</ul>
+				<ul class="header-links pull-right">
+					<li><a href="/Member/MemberRegister/">Kayıt Ol</a></li>
+					<li><a href="/Login/MemberLogin/">Giriş Yap</a></li>
+				</ul>
 			</div>
 		</div>
-		<div class="row">
-
-			<div class="col-md-12">
-				<div class="nav-menus">
-
-					<ul class="nav nav-pills">
-						<li class="active"><a style="border-radius:initial;" href="#">Anasayfa</a></li>
-						<li><a style="border-radius:initial;" href="/Product/ProductList">Ürünler</a></li>
-						<li><a style="border-radius:initial;" href="#">Hakkımızda</a></li>
-					</ul>
-				</div>
+	</header>
+	<!-- /HEADER -->
+	<!-- NAVIGATION -->
+	<nav id="navigation">
+		<!-- container -->
+		<div class="container">
+			<!-- responsive-nav -->
+			<div id="responsive-nav">
+				<!-- NAV -->
+				<ul class="main-nav nav navbar-nav">
+					<li><a href="#">Ana Sayfa</a></li>
+					<li><a href="#">Hakkımızda</a></li>
+					<li><a href="#">Ürünler</a></li>
+				</ul>
+				<!-- /NAV -->
 			</div>
-
+			<!-- /responsive-nav -->
 		</div>
-
-
-		@RenderBody()
-		<hr />
-		<footer>
-			<div class="row">
-				<div class="col-md-12 copyright">
-
-					<div class="col-md-6 col-sm-6 copyright-left">
-						<p>&copy; @DateTime.Now.Year - OnlineShopingStore. All right reserved.</p>
+		<!-- /container -->
+	</nav>
+	@RenderBody()
+	<footer id="footer">
+		<!-- top footer -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Hakkımızda</h3>
+							<p>2021 yılında yayımlanan online alışveriş sitemiz siz değerli müşterileri bekliyor.</p>
+							<ul class="footer-links">
+								<li><a href="#"><i class="fa fa-map-marker"></i>Ankara/Gölbaşı</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+								<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+							</ul>
+						</div>
 					</div>
 
-					<div class="col-md-6 col-sm-6 copyright-right">
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Kategoriler</h3>
+							<ul class="footer-links">
+								<li><a href="#">Telefon</a></li>
+								<li><a href="#">Laptop</a></li>
+								<li><a href="#">Akılı Saat</a></li>
+								<li><a href="#">Kamera</a></li>
+								<li><a href="#">Televizyon</a></li>
+								<li><a href="#">Aksesuar</a></li>
+							</ul>
+						</div>
+					</div>
 
-						<ul class="list-unstyled list-social">
-							<li><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Bizi Takip Edin</h3>
+							<ul class="footer-links">
+								<li>
+									<a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-pinterest fa-2x"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /top footer -->
+		<!-- bottom footer -->
+		<div id="bottom-footer" class="section">
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<ul class="footer-payments">
+							<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+							<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+							<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+							<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+							<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+							<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
 						</ul>
+						<span class="copyright">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</span>
 					</div>
 				</div>
+				<!-- /row -->
 			</div>
+			<!-- /container -->
+		</div>
+		<!-- /bottom footer -->
+	</footer>
+	<!-- /FOOTER -->
+	<!-- jQuery Plugins -->
+	<script src="~/Content/Tema/Homepage/js/jquery.min.js"></script>
+	<script src="~/Content/Tema/Homepage/js/bootstrap.min.js"></script>
+	<script src="~/Content/Tema/Homepage/js/slick.min.js"></script>
+	<script src="~/Content/Tema/Homepage/js/nouislider.min.js"></script>
+	<script src="~/Content/Tema/Homepage/js/jquery.zoom.min.js"></script>
+	<script src="~/Content/Tema/Homepage/js/main.js"></script>
 
-		</footer>
-	</div>
-
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/bundles/bootstrap")
-	@RenderSection("scripts", required: false)
 </body>
 </html>

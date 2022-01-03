@@ -2,126 +2,92 @@
 	ViewBag.Title = "Home Page";
 }
 
-<div id="themeSlider" class="carousel slide" data-ride="carousel">
-	<ol class="carousel-indicators">
-		<li data-target="#themeSlider" data-slide-to="0" class="active"></li>
-		<li data-target="#themeSlider" data-slide-to="1"></li>
-		<li data-target="#themeSlider" data-slide-to="2"></li>
-	</ol>
-	<div class="carousel-inner">
-		<div class="item active">
-			<div class="imgOverlay"></div>
-			<img style="height:400px;width:100%" src="https://www.pngitem.com/pimgs/m/29-291349_mobiles-images-png-transparent-png.png" alt="First slide">
-			<div class="carousel-caption">
-				<h3>Telefon</h3>
 
+<div class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<!-- shop -->
+			<div class="col-md-4 col-xs-6">
+				<div class="shop">
+					<div class="shop-img">
+						<img src="~/Content/Tema/Homepage/img/shop01.png" alt="">
+					</div>
+					<div class="shop-body">
+						<h3>Laptop<br>Koleksiyonu</h3>
+						<a href="/Product/ProductList/" class="cta-btn">Alışverişe Başla <i class="fa fa-arrow-circle-right"></i></a>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="item">
-			<div class="imgOverlay"></div>
-			<img style="height: 400px; width: 100%" src="https://p.kindpng.com/picc/s/588-5880473_personal-computer-hardware-hd-png-download.png" alt="Second slide">
-			<div class="carousel-caption">
-				<h3>Bilgisayar</h3>
-
+			<!-- /shop -->
+			<!-- shop -->
+			<div class="col-md-4 col-xs-6">
+				<div class="shop">
+					<div class="shop-img">
+						<img src="~/Content/Tema/Homepage/img/shop03.png" alt="">
+					</div>
+					<div class="shop-body">
+						<h3>Aksesuar<br>Koleksiyonu</h3>
+						<a href="/Product/ProductList/" class="cta-btn">Alışverişe Başla <i class="fa fa-arrow-circle-right"></i></a>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="item">
-			<div class="imgOverlay"></div>
-			<img style="height: 400px; width: 100%" src="https://thumbs.dreamstime.com/b/dslr-digital-camera-modern-lens-isolated-white-86705883.jpg" alt="Third slide">
-			<div class="carousel-caption">
-				<h3>Fotoğraf Makinesi</h3>
-
+			<!-- /shop -->
+			<!-- shop -->
+			<div class="col-md-4 col-xs-6">
+				<div class="shop">
+					<div class="shop-img">
+						<img src="~/Content/Tema/Homepage/img/shop02.png" alt="">
+					</div>
+					<div class="shop-body">
+						<h3>Kamera<br>Koleksiyonu</h3>
+						<a href="/Product/ProductList/" class="cta-btn">Alışverişe Başla <i class="fa fa-arrow-circle-right"></i></a>
+					</div>
+				</div>
 			</div>
+			<!-- /shop -->
 		</div>
+		<!-- /row -->
 	</div>
-	<a class="left carousel-control" href="#themeSlider" data-slide="prev">
-		<span class="fa fa-chevron-left"></span>
-	</a>
-	<a class="right carousel-control" href="#themeSlider" data-slide="next">
-		<span class="fa fa-chevron-right"></span>
-	</a>
-
+	<!-- /container -->
 </div>
-<div class="olContent f1"><h2 style="color:black">Search Product/Category</h2></div>
-<div class="olSearch fr">
-	<input type="text" placeholder="Enter Keyword" name="searchKey" class="inputComn houseText form-control" />
-	<div class="searchIcon">
-		<button type="button" class="searchBtn">
-			<img src="~/Images/searchIcon.png" />
-		</button>
-	</div>
-
-
-</div>
-
-<div class="row">
-	<div class="col-md-12">
-		<div class="page-header">
-			<h2>Our Products <small>trends products</small></h2>
-		</div>
-	</div>
-</div>
-
-<div class="row product-container">
-
-	<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
-		<div class="thumbnail product-item" style="height:300px">
-
-			<img class="img-responsive" title="Click to View Product detail"
-				 style="cursor:pointer;height:160px;width:100%"
-				 src="https://thumbs.dreamstime.com/b/dslr-digital-camera-modern-lens-isolated-white-86705883.jpg" />
-
-			<div class="caption">
-				<h5>Product Name</h5>
-				<p>500.00 ৳.</p>
-				<p>Available</p>
-				<div class="product-item-badge">New</div>
+<!-- /SECTION -->
+<!-- HOT DEAL SECTION -->
+<div id="hot-deal" class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hot-deal">
+					<ul class="hot-deal-countdown">
+						<li>
+							<div>
+								<h3>02</h3>
+								<span>Gün</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h3>10</h3>
+								<span>Saat</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h3>34</h3>
+								<span>Dakika</span>
+							</div>
+						</li>
+					</ul>
+					<h2 class="text-uppercase">bu hafta sıcak indirim var</h2>
+					<p>%50'ye varan indirim</p>
+					<a class="primary-btn cta-btn" href="/Product/ProductList/">Alışverişe Başla</a>
+				</div>
 			</div>
 		</div>
+		<!-- /row -->
 	</div>
-	<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
-		<div class="thumbnail product-item" style="height:300px">
-
-			<img class="img-responsive" title="Click to View Product detail"
-				 style="cursor:pointer;height:160px;width:100%"
-				 src="https://thumbs.dreamstime.com/b/dslr-digital-camera-modern-lens-isolated-white-86705883.jpg" />
-
-			<div class="caption">
-				<h5>Product Name</h5>
-				<p>500.00 ৳.</p>
-				<p>Available</p>
-				<div class="product-item-badge">New</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
-		<div class="thumbnail product-item" style="height:300px">
-
-			<img class="img-responsive" title="Click to View Product detail"
-				 style="cursor:pointer;height:160px;width:100%"
-				 src="https://thumbs.dreamstime.com/b/dslr-digital-camera-modern-lens-isolated-white-86705883.jpg" />
-
-			<div class="caption">
-				<h5>Product Name</h5>
-				<p>500.00 ৳.</p>
-				<p>Available</p>
-				<div class="product-item-badge">New</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
-		<div class="thumbnail product-item" style="height:300px">
-
-			<img class="img-responsive" title="Click to View Product detail"
-				 style="cursor:pointer;height:160px;width:100%"
-				 src="https://thumbs.dreamstime.com/b/dslr-digital-camera-modern-lens-isolated-white-86705883.jpg" />
-
-			<div class="caption">
-				<h5>Product Name</h5>
-				<p>500.00 ৳.</p>
-				<p>Available</p>
-				<div class="product-item-badge">New</div>
-			</div>
-		</div>
-	</div>
+	<!-- /container -->
 </div>

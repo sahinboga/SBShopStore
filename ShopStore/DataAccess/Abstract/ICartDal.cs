@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-	public interface ICartDal:IEntityRepository<Cart>
+	public interface ICartDal : IEntityRepository<Cart>
 	{
+		void DeleteByMemberId(int id);
 	}
 }

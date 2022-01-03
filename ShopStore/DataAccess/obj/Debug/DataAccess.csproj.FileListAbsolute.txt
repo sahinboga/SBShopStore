@@ -18,4 +18,4 @@ C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\DataAccess\obj\Debug\Data
 C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\DataAccess\obj\Debug\DataAccess.Migrations.update_cart.resources
 C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\DataAccess\obj\Debug\DataAccess.Migrations.update_image.resources
 C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\DataAccess\obj\Debug\DataAccess.Migrations.add_admin_table.resources
-C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\DataAccess\obj\Debug\DataAccess.Migrations.shipping.resources

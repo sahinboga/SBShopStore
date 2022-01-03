@@ -16,6 +16,9 @@ namespace Entities.Concrete
 		public virtual Member Member { get; set; }
 
 		[StringLength(50)]
+		public string CardName { get; set; }
+
+		[StringLength(50)]
 		public string CardNumber { get; set; }
 		public int CVV { get; set; }
 		public int Amount { get; set; }

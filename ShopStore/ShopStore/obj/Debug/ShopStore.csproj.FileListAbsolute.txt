@@ -98,4 +98,3 @@ C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\ShopStore\obj\Debug\ShopS
 C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\ShopStore\obj\Debug\ShopStore.pdb
 C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\ShopStore\bin\EntityFramework.SqlServer.dll
 C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\ShopStore\bin\EntityFramework.SqlServer.xml
-C:\Users\CASPER\Documents\GitHub\SBShopStore\ShopStore\ShopStore\obj\Debug\ShopStore.csproj.CopyComplete
